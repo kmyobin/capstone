@@ -28,7 +28,7 @@ for i in range(1,length+1):
   #print(img)
 
   img_trim=image_trim(img, 103, 191, 499, 749) # 얼굴 영상만 추출
-  num_trim=image_trim(img, 859, 456, 50, 30)
+  num_trim=image_trim(img, 859, 456, 50, 30) # 숫자 영상만 추출
   num_name="num"+str(i)
   #cv2.imshow(num_name, num_trim)
   text=pytesseract.image_to_string(num_trim, config="kor+eng")
