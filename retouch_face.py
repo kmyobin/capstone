@@ -16,7 +16,6 @@ def image_trim(img, x, y, w, h):
 
 
 length = get_files_count('real_dataset') - 6 # 체커보드 사진 제외하고 데이터셋 개수 세기
-    
 
 '''
 피부톤 사진(일반광)에서 영상과 숫자를 추출하여 담는다
