@@ -1,0 +1,4 @@
+# 프로젝트 전체 폴더 중 dataset을 사용하는 폴더의 하위 파일 모두 무시
+dataset/ 
+real_dataset/
+result_dataset/
