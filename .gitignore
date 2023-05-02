@@ -4,3 +4,4 @@ real_dataset/
 result_dataset/
 .vscode/
 shape_predictor_68_face_landmarks
+node_modules/
