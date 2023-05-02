@@ -15,14 +15,14 @@ def image_trim(img, x, y, w, h):
    return img_trim
 
 
-length = get_files_count('real_dataset') - 6 # 체커보드 사진 제외하고 데이터셋 개수 세기
+length = get_files_count('real_dataset') #- 6 # 체커보드 사진 제외하고 데이터셋 개수 세기
 
 '''
 피부톤 사진(일반광)에서 영상과 숫자를 추출하여 담는다
 '''
 for i in range(1,length+1):
-  file_name="real_dataset/"+str(i)+"/"+str(i)+"_피부톤.bmp"
-  file_name_rb="real_dataset/"+str(i)+"/"+str(i)+"_R&B.bmp"
+  file_name="real_dataset/"+str(i)+"/"+"피부톤.jpg"
+  file_name_rb="real_dataset/"+str(i)+"/"+"red&brown.jpg"
 
   img=cv2.imdecode(np.fromfile(file_name, dtype=np.uint8), cv2.IMREAD_COLOR) # 한글 경로 못읽으므로 dtype 지정
   img_rb=cv2.imdecode(np.fromfile(file_name_rb, dtype=np.uint8), cv2.IMREAD_COLOR) # 한글 경로 못읽으므로 dtype 지정

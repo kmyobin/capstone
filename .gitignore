@@ -6,3 +6,4 @@ result_dataset/
 shape_predictor_68_face_landmarks
 node_modules/
 remove_eyebrows_dataset/
+capstone/

@@ -58,9 +58,9 @@ for i in range(1, length+1):
     print(str(i)+".jpg가 저장되었습니다.")
 
     # Display the original and inpainted images side by side
-    cv2.imshow('Original', img)
-    cv2.imshow('Inpainted', dst)
+    #cv2.imshow('Original', img)
+    #cv2.imshow('Inpainted', dst)
 
-cv2.waitKey(0)
+'''cv2.waitKey(0)
 cv2.destroyAllWindows()
-
+'''
