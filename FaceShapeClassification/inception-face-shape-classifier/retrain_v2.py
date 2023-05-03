@@ -81,10 +81,7 @@ from pathlib import Path
 import numpy as np
 from six.moves import urllib
 import tensorflow as tf
-import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior()
-
-
+from tensorflow.python.framework.graph_util import convert_variables_to_constants
 from tensorflow.python.framework import graph_util
 from tensorflow.python.framework import tensor_shape
 from tensorflow.python.platform import gfile
@@ -935,7 +932,7 @@ def main(_):
     np.savetxt(str(FLAGS.prediction_dir), final_results, fmt = '%s')
 	
   # Write out the trained graph and labels with the weights stored as constants.
-  output_graph_def = graph_util.convert_variables_to_constants(
+  output_graph_def = tf.compat.v1.graph_util.convert_variables_to_constants(
       sess, graph.as_graph_def(), [FLAGS.final_tensor_name])
   #수정
   with gfile.GFile(FLAGS.output_graph, 'wb') as f:

@@ -6,11 +6,11 @@ from PIL import ImageFilter, ImageEnhance, ImageOps
 import matplotlib.pyplot as plt
 import pathlib
 from datetime import datetime
-import time
 import tensorflow as tf, sys
 import os
-import numpy as np
 import cv2
+import numpy as np
+import time
 
 #where to find python.exe
 py_path = "python"
