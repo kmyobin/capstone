@@ -9,8 +9,8 @@ import time
 import tensorflow as tf, sys
 import numpy as np
 import random
-
-#import os
+import matplotlib.pyplot as plt
+import os
 #os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 def plot_images(image, Caption1):
@@ -41,11 +41,9 @@ def classify_image(image_path, model_path, labels_path):
     image_data = tf.io.gfile.GFile(image_path, 'rb').read()
 
     # Loads label file, strips off carriage return
-    with tf.io.gfile.GFile(labels_path, 'r') as f:
-        label_lines = [line.strip() for line 
-                        in f.readlines()]
+    label_lines = ['heart', 'oblong', 'oval', 'round', 'square']
     #label_lines = [line.rstrip() for line 
-    #                   in tf.io.gfile.GFile(labels_path)]
+    #                  in tf.io.gfile.GFile(labels_path)]
 
     # Unpersists graph from file
     with tf.io.gfile.GFile(model_path, 'rb') as f:
@@ -78,7 +76,14 @@ def classify_image(image_path, model_path, labels_path):
             score = predictions[0][node_id]
             output_label = output_label + human_string + "({0:.4f})".format(score) + " "
             print('%s (score = %.5f)' % (human_string, score))
-        print(output_label)
+            print(output_label)
+            if score == 1:
+                current_path = os.getcwd()
+                result_dataset_dir = os.path.join(current_path, "result_dataset")
+                outputlabel_file_path = os.path.join(result_dataset_dir, "outputlabel.txt")
+                with open(outputlabel_file_path, "w") as f:
+                    f.write(label_lines[node_id])
+        
         output_label = output_label + " Runtime: " + "{0:.2f}".format(time.monotonic()-time_start) + "s"
     
     image = Image.open(image_path)
