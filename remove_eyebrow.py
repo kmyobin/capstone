@@ -56,6 +56,31 @@ for i in range(1, length+1):
     cv2.imwrite(save_result_img, dst) # 이미지 저장
 
     print(str(i)+".jpg가 저장되었습니다.")
+    
+    if(i<112):
+        save_original="train_eyebrow/datasets/eyebrows/A/train/"
+        save_original_img=save_original+str(i)+".jpg"
+        cv2.imwrite(save_original_img, img)
+        
+        save_remove="train_eyebrow/datasets/eyebrows/B/train/"
+        save_remove_img=save_remove+str(i)+".jpg"
+        cv2.imwrite(save_remove_img, dst)
+    elif(i<145):
+        save_original="train_eyebrow/datasets/eyebrows/A/test/"
+        save_original_img=save_original+str(i)+".jpg"
+        cv2.imwrite(save_original_img, img)
+        
+        save_remove="train_eyebrow/datasets/eyebrows/B/test/"
+        save_remove_img=save_remove+str(i)+".jpg"
+        cv2.imwrite(save_remove_img, dst)
+    else:
+        save_original="train_eyebrow/datasets/eyebrows/A/val/"
+        save_original_img=save_original+str(i)+".jpg"
+        cv2.imwrite(save_original_img, img)
+        
+        save_remove="train_eyebrow/datasets/eyebrows/B/val/"
+        save_remove_img=save_remove+str(i)+".jpg"
+        cv2.imwrite(save_remove_img, dst)
 
     # Display the original and inpainted images side by side
     #cv2.imshow('Original', img)
