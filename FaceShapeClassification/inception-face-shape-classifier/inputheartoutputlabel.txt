@@ -1,0 +1,1 @@
+oval(1.0000) square(0.0000) round(0.0000) oblong(0.0000) heart(0.0000) 
