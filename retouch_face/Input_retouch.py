@@ -3,7 +3,13 @@ import numpy as np
 import os
 from PIL import Image
 from PIL import ImageGrab
+<<<<<<< Updated upstream
 from pytesseract import *
+=======
+import pytesseract 
+
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
+>>>>>>> Stashed changes
 
 current_path = os.path.abspath(os.path.dirname(__file__))
 parent_path = os.path.abspath(os.path.join(current_path, '..'))
