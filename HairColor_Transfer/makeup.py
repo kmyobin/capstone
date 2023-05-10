@@ -7,7 +7,7 @@ import argparse
 
 current_path = os.path.abspath(os.path.dirname(__file__))
 parent_path = os.path.abspath(os.path.join(current_path, '..'))
-img_name=os.path.abspath(os.path.join(parent_path, 'input','img.jpg'))
+img_name=os.path.abspath(os.path.join(parent_path, 'input','testhair1.jpg'))
 cp_name=os.path.abspath(os.path.join(current_path, 'cp','79999_iter.pth'))
 
 def parse_args():
@@ -35,7 +35,7 @@ def sharpen(img):
     return np.array(img_out, dtype=np.uint8)
 
 
-def hair(image, parsing, part=17, color=[230, 50, 20]):
+def hair(image, parsing, part=17, color=[255, 30, 255]):
     b, g, r = color      #[10, 50, 250]       # [10, 250, 10]
     tar_color = np.zeros_like(image)
     tar_color[:, :, 0] = b
@@ -52,8 +52,8 @@ def hair(image, parsing, part=17, color=[230, 50, 20]):
 
     changed = cv2.cvtColor(image_hsv, cv2.COLOR_HSV2BGR)
 
-    #if part == 17:
-        #changed = sharpen(changed)
+    if part == 17:
+        changed = sharpen(changed)
 
     changed[parsing != part] = image[parsing != part]
     return changed
@@ -85,7 +85,7 @@ if __name__ == '__main__':
     
     parts = [table['hair']]
 
-    colors = [[255, 255, 0]]
+    colors = [[30, 40, 30]]
 
     for part, color in zip(parts, colors):
         image = hair(image, parsing, part, color)
